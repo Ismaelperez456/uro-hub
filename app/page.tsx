@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState } from "react";
@@ -50,6 +49,34 @@ const imagingCases = [
     isOpenAccess: true,
     abstractText: "Hallazgo radiológico: Se observa imagen hiperdensa (calculo) de aproximadamente 7 mm en tercio proximal de uréter derecho, acompañada de dilatación calicijal y marcada ureterohidronefrosis ipsilateral con densificación de la grasa perirrenal.",
     europePmcUrl: "#"
+  },
+  {
+    id: "img-2",
+    title: "Imagen Urológica: Ecografía Doppler - Torsión Testicular",
+    authors: "Servicio de Diagnóstico por Imágenes",
+    journal: "Atlas de Imágenes Urológicas",
+    year: "2026",
+    doi: "",
+    pmid: "",
+    pmcid: "",
+    publicationType: "image",
+    isOpenAccess: true,
+    abstractText: "Ausencia total de flujo sanguíneo intraescrotal en el testículo afectado comparado con el contralateral sano, signo cardinal de torsión.",
+    europePmcUrl: "#"
+  },
+  {
+    id: "img-3",
+    title: "Imagen Urológica: Uretrografía retrógrada - Trauma de Uretra",
+    authors: "Staff de Urología y Guardia",
+    journal: "Atlas de Imágenes Urológicas",
+    year: "2026",
+    doi: "",
+    pmid: "",
+    pmcid: "",
+    publicationType: "image",
+    isOpenAccess: true,
+    abstractText: "Extravasación de medio de contraste a nivel de uretra bulbar/membranosa por lesión traumática. Contraindicado sondaje a ciegas.",
+    europePmcUrl: "#"
   }
 ];
 
@@ -90,7 +117,7 @@ const proceduresCases = [
     year: "2026",
     publicationType: "procedure",
     isOpenAccess: true,
-    abstractText: "Abordaje escrotal para la resección del saco hidrocélico y eversión de la túnica vaginal. Tratamiento definitivo del hidrocele sintomático o de gran volumen con hemostasia meticulosa para prevenir hematomas postoperatorios.",
+    abstractText: "Abordaje escrotal para la resección del saco hidrocélico y eversión de la túnica vaginal (Winkelmann o Jaboulay). Tratamiento definitivo con hemostasia meticulosa para prevenir hematomas postoperatorios.",
     europePmcUrl: "#"
   },
   {
@@ -101,7 +128,7 @@ const proceduresCases = [
     year: "2026",
     publicationType: "procedure",
     isOpenAccess: true,
-    abstractText: "Ligadura de las venas del plexo pampiniforme dilatadas. Abordaje inguinal, subinguinal (microscópica) o laparoscópica. Indicada por dolor testicular, alteración seminal o detención del crecimiento testicular.",
+    abstractText: "Ligadura de las venas del plexo pampiniforme dilatadas. Abordaje inguinal, subinguinal (microscópica) o laparoscópica. Indicada por dolor testicular, alteración seminal o detención del crecimiento.",
     europePmcUrl: "#"
   },
   {
@@ -147,6 +174,61 @@ const proceduresCases = [
     isOpenAccess: true,
     abstractText: "Resección quirúrgica testicular. Orquiectomía simple/subcapsular (indicaciones hormonales) u orquiectomía radical por vía inguinal (estándar oncológico ante sospecha de tumor testicular).",
     europePmcUrl: "#"
+  },
+  {
+    id: "urg-1",
+    title: "Urgencia / Trauma: Trauma Renal",
+    authors: "Comité de Trauma Urológico y Guardia",
+    journal: "Manual de Urgencias Urológicas",
+    year: "2026",
+    publicationType: "procedure",
+    isOpenAccess: true,
+    abstractText: "Clasificación de Grados I al V mediante TAC con contraste. Evaluación hemodinámica estricta. Manejo mayoritariamente conservador en pacientes estables.",
+    europePmcUrl: "#"
+  },
+  {
+    id: "urg-2",
+    title: "Urgencia / Trauma: Trauma de Uretra (Anterior y Posterior)",
+    authors: "Comité de Trauma Urológico y Guardia",
+    journal: "Manual de Urgencias Urológicas",
+    year: "2026",
+    publicationType: "procedure",
+    isOpenAccess: true,
+    abstractText: "¡Prohibido el sondaje vesical a ciegas ante sospecha de lesión completa! Requiere colocación inmediata de cistostomía suprapúbica.",
+    europePmcUrl: "#"
+  },
+  {
+    id: "urg-3",
+    title: "Urgencia / Trauma: Fractura de Cuerpos Cavernosos (Trauma Peneano)",
+    authors: "Comité de Trauma Urológico y Guardia",
+    journal: "Manual de Urgencias Urológicas",
+    year: "2026",
+    publicationType: "procedure",
+    isOpenAccess: true,
+    abstractText: "Urgencia absoluta. Chasquido, dolor agudo y deformidad en berenjena durante la erección. Cirugía de emergencia para sutura primaria de la túnica albugínea.",
+    europePmcUrl: "#"
+  },
+  {
+    id: "urg-4",
+    title: "Urgencia / Trauma: Torsión Testicular",
+    authors: "Comité de Guardia Urológica",
+    journal: "Manual de Urgencias Urológicas",
+    year: "2026",
+    publicationType: "procedure",
+    isOpenAccess: true,
+    abstractText: "Urgencia crítica de rescate. Ventana de oro menor a 6 horas para evitar la necrosis y pérdida del testículo. Exploración y fijación bilateral.",
+    europePmcUrl: "#"
+  },
+  {
+    id: "urg-5",
+    title: "Urgencia / Trauma: Priapismo Isquémico y RAO",
+    authors: "Comité de Guardia Urológica",
+    journal: "Manual de Urgencias Urológicas",
+    year: "2026",
+    publicationType: "procedure",
+    isOpenAccess: true,
+    abstractText: "Priapismo (>4h): Descompresión por punción de cuerpos cavernosos e irrigación. RAO: Descompresión vesical inmediata por sondaje o talla vesical.",
+    europePmcUrl: "#"
   }
 ];
 
@@ -160,13 +242,13 @@ const categories = [
 
 const examples = [
   "Litiasis renal",
-  "Hematuria",
-  "Cáncer de próstata",
-  "Cáncer de vejiga",
-  "Hiperplasia prostática",
+  "Varicocelectomía",
+  "Trauma renal",
+  "Cistoscopia",
+  "Torsión testicular",
   "Ureteroscopia",
-  "Infertilidad masculina",
-  "Incontinencia urinaria",
+  "Hidrocelectomía",
+  "Catéter doble J",
 ];
 
 function cleanAbstract(abstract?: string) {
@@ -187,7 +269,7 @@ function formatPublicationType(type?: string) {
     review: "Revisión",
     image: "Imagen radiológica",
     guideline: "Guía clínica oficial",
-    procedure: "Procedimiento quirúrgico",
+    procedure: "Procedimiento / Urgencia",
     editorial: "Editorial",
   };
   return types.map((t) => translations[t.toLowerCase()] || t).join(" · ");
@@ -205,7 +287,7 @@ function ArticleCard({ article }: { article: Article }) {
   const abstract = cleanAbstract(article.abstractText);
   const doiUrl = article.doi ? `https://doi.org/${article.doi}` : "";
   const isRecent = article.year === "2026";
-  const isImageCard = article.publicationType === "image" || title.includes("Tomografía") || title.includes("Imagen");
+  const isImageCard = article.publicationType === "image" || title.includes("Tomografía") || title.includes("Imagen") || title.includes("Ecografía") || title.includes("Uretrografía");
   const googleImagesUrl = `https://www.google.com/search?q=${encodeURIComponent(title)}&tbm=isch`;
 
   return (
@@ -257,7 +339,7 @@ function ArticleCard({ article }: { article: Article }) {
               boxShadow: "0 2px 4px rgba(2, 132, 199, 0.2)"
             }}
           >
-            🔍 Buscar imágenes similares en Google ↗
+            🔍 Buscar imágenes y esquemas similares en Google ↗
           </a>
         </div>
       )}
@@ -445,7 +527,7 @@ export default function Home() {
           </h1>
 
           <p className="hero-description">
-            Buscá literatura científica, casos clínicos, imágenes, guías y procedimientos quirúrgicos.
+            Buscá literatura científica, casos clínicos, imágenes, guías, procedimientos quirúrgicos y urgencias de guardia.
           </p>
 
           <div className="search-box">
@@ -457,7 +539,7 @@ export default function Home() {
               onKeyDown={(e) => {
                 if (e.key === "Enter") handleSearch();
               }}
-              placeholder="Buscar en Urología... Ej: litiasis + fiebre + obstrucción"
+              placeholder="Buscar en Urología... Ej: varicocelectomía, trauma renal, doble J"
             />
             <button onClick={() => handleSearch()} disabled={loading}>
               {loading ? "Buscando..." : "Buscar"}
@@ -568,8 +650,8 @@ export default function Home() {
           {activeCategory === "Procedimientos" && (
             <div className="results-header">
               <div>
-                <span className="results-label">TÉCNICA QUIRÚRGICA</span>
-                <h2>Procedimientos y Cirugía Urológica</h2>
+                <span className="results-label">TÉCNICA QUIRÚRGICA Y GUARDIA</span>
+                <h2>Procedimientos, Cirugías y Urgencias Urológicas</h2>
               </div>
               <div className="results-count">{proceduresCases.length} procedimientos detallados</div>
             </div>
