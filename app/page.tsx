@@ -141,6 +141,8 @@ function ArticleCard({ article }: { article: Article }) {
   const abstract = cleanAbstract(article.abstractText);
   const doiUrl = article.doi ? `https://doi.org/${article.doi}` : "";
   const isRecent = article.year === "2026";
+  const isImageCard = article.publicationType === "image" || title.includes("Tomografía") || title.includes("Imagen");
+  const googleImagesUrl = `https://www.google.com/search?q=${encodeURIComponent(title)}&tbm=isch`;
 
   return (
     <article className="article-card">
@@ -170,6 +172,32 @@ function ArticleCard({ article }: { article: Article }) {
       </div>
 
       <p className="abstract">{abstract}</p>
+
+      {/* Botón automático para buscar imágenes en Google */}
+      {isImageCard && (
+        <div style={{ marginBottom: "16px" }}>
+          <a
+            href={googleImagesUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "8px",
+              padding: "10px 16px",
+              backgroundColor: "#0284c7",
+              color: "white",
+              borderRadius: "8px",
+              textDecoration: "none",
+              fontSize: "14px",
+              fontWeight: 500,
+              boxShadow: "0 2px 4px rgba(2, 132, 199, 0.2)"
+            }}
+          >
+            🔍 Buscar imágenes similares en Google ↗
+          </a>
+        </div>
+      )}
 
       <div className="article-footer">
         <div className="identifiers">
@@ -217,7 +245,6 @@ export default function Home() {
 
   function handleLogin(e: React.FormEvent) {
     e.preventDefault();
-    // Validación de usuario y contraseña personalizados
     if (userInput.trim() === "Doctora Vega" && passwordInput === "010626") {
       setIsAuthenticated(true);
       setLoginError(false);
@@ -280,7 +307,6 @@ export default function Home() {
     });
   }
 
-  // Pantalla de Login Privado
   if (!isAuthenticated) {
     return (
       <main className="page" style={{ justifyContent: "center", alignItems: "center", background: "linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%)", minHeight: "100vh", display: "flex" }}>
@@ -320,7 +346,6 @@ export default function Home() {
     );
   }
 
-  // Interfaz principal
   return (
     <main className="page">
       <header className="header">
