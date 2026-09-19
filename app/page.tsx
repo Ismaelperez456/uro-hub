@@ -49,34 +49,6 @@ const imagingCases = [
     isOpenAccess: true,
     abstractText: "Hallazgo radiológico: Se observa imagen hiperdensa (calculo) de aproximadamente 7 mm en tercio proximal de uréter derecho, acompañada de dilatación calicijal y marcada ureterohidronefrosis ipsilateral con densificación de la grasa perirrenal.",
     europePmcUrl: "#"
-  },
-  {
-    id: "img-2",
-    title: "Imagen Urológica: Ecografía Doppler - Torsión Testicular",
-    authors: "Servicio de Diagnóstico por Imágenes",
-    journal: "Atlas de Imágenes Urológicas",
-    year: "2026",
-    doi: "",
-    pmid: "",
-    pmcid: "",
-    publicationType: "image",
-    isOpenAccess: true,
-    abstractText: "Ausencia total de flujo sanguíneo intraescrotal en el testículo afectado comparado con el contralateral sano, signo cardinal de torsión.",
-    europePmcUrl: "#"
-  },
-  {
-    id: "img-3",
-    title: "Imagen Urológica: Uretrografía retrógrada - Trauma de Uretra",
-    authors: "Staff de Urología y Guardia",
-    journal: "Atlas de Imágenes Urológicas",
-    year: "2026",
-    doi: "",
-    pmid: "",
-    pmcid: "",
-    publicationType: "image",
-    isOpenAccess: true,
-    abstractText: "Extravasación de medio de contraste a nivel de uretra bulbar/membranosa por lesión traumática. Contraindicado sondaje a ciegas.",
-    europePmcUrl: "#"
   }
 ];
 
@@ -97,31 +69,21 @@ const guidelinesCases = [
   }
 ];
 
+// Base de datos completa unificada con todos los procedimientos y urgencias solicitados
 const proceduresCases = [
   {
     id: "proc-1",
-    title: "Procedimiento Quirúrgico: Ureteroscopia flexible (URS-f) y litotricia láser",
+    title: "Procedimiento Quirúrgico: Colocación de Catéter Doble J",
     authors: "Staff Quirúrgico de Endourología",
     journal: "Manual de Técnicas Quirúrgicas Urológicas",
     year: "2026",
     publicationType: "procedure",
     isOpenAccess: true,
-    abstractText: "Paso a paso quirúrgico: 1. Cistoscopia y colocación de guía hidrofílica bajo control fluoroscópico. 2. Pasaje de acceso ureteral (access sheath). 3. Ingreso con ureteroscopio flexible hasta cavidad renal. 4. Fragmentación litiásica con láser Holmium. 5. Colocación final de catéter doble J.",
+    abstractText: "Derivación urinaria interna retrógrada desde la pelvis renal hasta la vejiga mediante guía endoscópica y fluoroscópica para descompresión litiásica, edema post-URS, estenosis o protección de anastomosis.",
     europePmcUrl: "#"
   },
   {
     id: "proc-2",
-    title: "Procedimiento Quirúrgico: Hidrocelectomía",
-    authors: "Staff Quirúrgico de Urología",
-    journal: "Manual de Técnicas Quirúrgicas Urológicas",
-    year: "2026",
-    publicationType: "procedure",
-    isOpenAccess: true,
-    abstractText: "Abordaje escrotal para la resección del saco hidrocélico y eversión de la túnica vaginal (Winkelmann o Jaboulay). Tratamiento definitivo con hemostasia meticulosa para prevenir hematomas postoperatorios.",
-    europePmcUrl: "#"
-  },
-  {
-    id: "proc-3",
     title: "Procedimiento Quirúrgico: Varicocelectomía",
     authors: "Staff Quirúrgico de Andrología",
     journal: "Manual de Técnicas Quirúrgicas Urológicas",
@@ -129,6 +91,17 @@ const proceduresCases = [
     publicationType: "procedure",
     isOpenAccess: true,
     abstractText: "Ligadura de las venas del plexo pampiniforme dilatadas. Abordaje inguinal, subinguinal (microscópica) o laparoscópica. Indicada por dolor testicular, alteración seminal o detención del crecimiento.",
+    europePmcUrl: "#"
+  },
+  {
+    id: "proc-3",
+    title: "Procedimiento Quirúrgico: Hidrocelectomía",
+    authors: "Staff Quirúrgico de Urología",
+    journal: "Manual de Técnicas Quirúrgicas Urológicas",
+    year: "2026",
+    publicationType: "procedure",
+    isOpenAccess: true,
+    abstractText: "Abordaje escrotal para la resección del saco hidrocélico y eversión de la túnica vaginal (Winkelmann o Jaboulay). Tratamiento definitivo con hemostasia meticulosa para prevenir hematomas postoperatorios.",
     europePmcUrl: "#"
   },
   {
@@ -155,17 +128,6 @@ const proceduresCases = [
   },
   {
     id: "proc-6",
-    title: "Procedimiento Quirúrgico: Colocación de Catéter Doble J",
-    authors: "Staff Quirúrgico de Endourología",
-    journal: "Manual de Técnicas Quirúrgicas Urológicas",
-    year: "2026",
-    publicationType: "procedure",
-    isOpenAccess: true,
-    abstractText: "Derivación urinaria interna desde la pelvis renal hasta la vejiga mediante guía endoscópica y fluoroscópica para descompresión litiásica, edema post-URS o protección de anastomosis.",
-    europePmcUrl: "#"
-  },
-  {
-    id: "proc-7",
     title: "Procedimiento Quirúrgico: Orquiectomías",
     authors: "Staff Quirúrgico Oncológico",
     journal: "Manual de Técnicas Quirúrgicas Urológicas",
@@ -173,6 +135,17 @@ const proceduresCases = [
     publicationType: "procedure",
     isOpenAccess: true,
     abstractText: "Resección quirúrgica testicular. Orquiectomía simple/subcapsular (indicaciones hormonales) u orquiectomía radical por vía inguinal (estándar oncológico ante sospecha de tumor testicular).",
+    europePmcUrl: "#"
+  },
+  {
+    id: "proc-7",
+    title: "Procedimiento Quirúrgico: Ureteroscopia (URS)",
+    authors: "Staff Quirúrgico de Endourología",
+    journal: "Manual de Técnicas Quirúrgicas Urológicas",
+    year: "2026",
+    publicationType: "procedure",
+    isOpenAccess: true,
+    abstractText: "Abordaje endoscópico retrógrado (rígido o flexible) hasta la pelvis renal, combinándose con litotricia láser intracoróprea y canastillas de extracción.",
     europePmcUrl: "#"
   },
   {
@@ -188,7 +161,7 @@ const proceduresCases = [
   },
   {
     id: "urg-2",
-    title: "Urgencia / Trauma: Trauma de Uretra (Anterior y Posterior)",
+    title: "Urgencia / Trauma: Trauma de Uretra",
     authors: "Comité de Trauma Urológico y Guardia",
     journal: "Manual de Urgencias Urológicas",
     year: "2026",
@@ -199,17 +172,6 @@ const proceduresCases = [
   },
   {
     id: "urg-3",
-    title: "Urgencia / Trauma: Fractura de Cuerpos Cavernosos (Trauma Peneano)",
-    authors: "Comité de Trauma Urológico y Guardia",
-    journal: "Manual de Urgencias Urológicas",
-    year: "2026",
-    publicationType: "procedure",
-    isOpenAccess: true,
-    abstractText: "Urgencia absoluta. Chasquido, dolor agudo y deformidad en berenjena durante la erección. Cirugía de emergencia para sutura primaria de la túnica albugínea.",
-    europePmcUrl: "#"
-  },
-  {
-    id: "urg-4",
     title: "Urgencia / Trauma: Torsión Testicular",
     authors: "Comité de Guardia Urológica",
     journal: "Manual de Urgencias Urológicas",
@@ -220,14 +182,14 @@ const proceduresCases = [
     europePmcUrl: "#"
   },
   {
-    id: "urg-5",
-    title: "Urgencia / Trauma: Priapismo Isquémico y RAO",
-    authors: "Comité de Guardia Urológica",
+    id: "urg-4",
+    title: "Urgencia / Trauma: Fractura de Cuerpos Cavernosos (Trauma Peneano)",
+    authors: "Comité de Trauma Urológico y Guardia",
     journal: "Manual de Urgencias Urológicas",
     year: "2026",
     publicationType: "procedure",
     isOpenAccess: true,
-    abstractText: "Priapismo (>4h): Descompresión por punción de cuerpos cavernosos e irrigación. RAO: Descompresión vesical inmediata por sondaje o talla vesical.",
+    abstractText: "Urgencia absoluta. Chasquido, dolor agudo y deformidad en berenjena durante la erección. Cirugía de emergencia para sutura primaria de la túnica albugínea.",
     europePmcUrl: "#"
   }
 ];
@@ -241,14 +203,14 @@ const categories = [
 ];
 
 const examples = [
-  "Litiasis renal",
+  "Catéter Doble J",
   "Varicocelectomía",
   "Trauma renal",
-  "Cistoscopia",
   "Torsión testicular",
+  "Cistoscopia",
   "Ureteroscopia",
   "Hidrocelectomía",
-  "Catéter doble J",
+  "Trauma de uretra"
 ];
 
 function cleanAbstract(abstract?: string) {
@@ -287,8 +249,9 @@ function ArticleCard({ article }: { article: Article }) {
   const abstract = cleanAbstract(article.abstractText);
   const doiUrl = article.doi ? `https://doi.org/${article.doi}` : "";
   const isRecent = article.year === "2026";
-  const isImageCard = article.publicationType === "image" || title.includes("Tomografía") || title.includes("Imagen") || title.includes("Ecografía") || title.includes("Uretrografía");
-  const googleImagesUrl = `https://www.google.com/search?q=${encodeURIComponent(title)}&tbm=isch`;
+  
+  // Botón dinámico para buscar imágenes globales de CUALQUIER tema buscado
+  const googleImagesUrl = `https://www.google.com/search?q=${encodeURIComponent(title + " urologia cirugia radiografia esquema")}&tbm=isch`;
 
   return (
     <article className="article-card">
@@ -319,30 +282,29 @@ function ArticleCard({ article }: { article: Article }) {
 
       <p className="abstract">{abstract}</p>
 
-      {isImageCard && (
-        <div style={{ marginBottom: "16px" }}>
-          <a
-            href={googleImagesUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: "8px",
-              padding: "10px 16px",
-              backgroundColor: "#0284c7",
-              color: "white",
-              borderRadius: "8px",
-              textDecoration: "none",
-              fontSize: "14px",
-              fontWeight: 500,
-              boxShadow: "0 2px 4px rgba(2, 132, 199, 0.2)"
-            }}
-          >
-            🔍 Buscar imágenes y esquemas similares en Google ↗
-          </a>
-        </div>
-      )}
+      {/* Botón dinámico de imágenes para cada tarjeta */}
+      <div style={{ marginBottom: "16px" }}>
+        <a
+          href={googleImagesUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            gap: "8px",
+            padding: "10px 16px",
+            backgroundColor: "#0284c7",
+            color: "white",
+            borderRadius: "8px",
+            textDecoration: "none",
+            fontSize: "14px",
+            fontWeight: 500,
+            boxShadow: "0 2px 4px rgba(2, 132, 199, 0.2)"
+          }}
+        >
+          🔍 Ver imágenes y esquemas globales de este tema en Google ↗
+        </a>
+      </div>
 
       <div className="article-footer">
         <div className="identifiers">
@@ -439,7 +401,8 @@ export default function Home() {
   if (activeCategory === "Casos clínicos") {
     displayedResults = clinicalCases;
   } else if (activeCategory === "Imágenes") {
-    displayedResults = imagingCases;
+    // Si entra a imágenes o busca, le permitimos explorar todos los procedimientos y guías con acceso a imágenes globales
+    displayedResults = proceduresCases;
   } else if (activeCategory === "Guías") {
     displayedResults = guidelinesCases;
   } else if (activeCategory === "Procedimientos") {
@@ -527,7 +490,7 @@ export default function Home() {
           </h1>
 
           <p className="hero-description">
-            Buscá literatura científica, casos clínicos, imágenes, guías, procedimientos quirúrgicos y urgencias de guardia.
+            Buscá literatura científica, casos clínicos, guías, procedimientos quirúrgicos y urgencias con acceso a imágenes globales.
           </p>
 
           <div className="search-box">
@@ -539,7 +502,7 @@ export default function Home() {
               onKeyDown={(e) => {
                 if (e.key === "Enter") handleSearch();
               }}
-              placeholder="Buscar en Urología... Ej: varicocelectomía, trauma renal, doble J"
+              placeholder="Buscar en Urología... Ej: Catéter Doble J, Varicocelectomía, Trauma renal"
             />
             <button onClick={() => handleSearch()} disabled={loading}>
               {loading ? "Buscando..." : "Buscar"}
@@ -631,9 +594,9 @@ export default function Home() {
             <div className="results-header">
               <div>
                 <span className="results-label">DIAGNÓSTICO POR IMÁGENES</span>
-                <h2>Atlas de Imágenes Urológicas</h2>
+                <h2>Atlas e Imágenes Globales Urológicas</h2>
               </div>
-              <div className="results-count">{imagingCases.length} imágenes disponibles</div>
+              <div className="results-count">Acceso visual a todo el temario</div>
             </div>
           )}
 
