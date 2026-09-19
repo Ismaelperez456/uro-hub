@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState } from "react";
@@ -55,7 +56,7 @@ const imagingCases = [
 const guidelinesCases = [
   {
     id: "guide-1",
-    title: "Guía Clínica EAU: Manejo de la Litiasis Urinaria (Aktualización 2026)",
+    title: "Guía Clínica EAU: Manejo de la Litiasis Urinaria (Actualización 2026)",
     authors: "European Association of Urology (EAU Guidelines Panel)",
     journal: "European Urology Official Guidelines",
     year: "2026",
@@ -76,12 +77,75 @@ const proceduresCases = [
     authors: "Staff Quirúrgico de Endourología",
     journal: "Manual de Técnicas Quirúrgicas Urológicas",
     year: "2026",
-    doi: "",
-    pmid: "",
-    pmcid: "",
     publicationType: "procedure",
     isOpenAccess: true,
     abstractText: "Paso a paso quirúrgico: 1. Cistoscopia y colocación de guía hidrofílica bajo control fluoroscópico. 2. Pasaje de acceso ureteral (access sheath). 3. Ingreso con ureteroscopio flexible hasta cavidad renal. 4. Fragmentación litiásica con láser Holmium. 5. Colocación final de catéter doble J.",
+    europePmcUrl: "#"
+  },
+  {
+    id: "proc-2",
+    title: "Procedimiento Quirúrgico: Hidrocelectomía",
+    authors: "Staff Quirúrgico de Urología",
+    journal: "Manual de Técnicas Quirúrgicas Urológicas",
+    year: "2026",
+    publicationType: "procedure",
+    isOpenAccess: true,
+    abstractText: "Abordaje escrotal para la resección del saco hidrocélico y eversión de la túnica vaginal. Tratamiento definitivo del hidrocele sintomático o de gran volumen con hemostasia meticulosa para prevenir hematomas postoperatorios.",
+    europePmcUrl: "#"
+  },
+  {
+    id: "proc-3",
+    title: "Procedimiento Quirúrgico: Varicocelectomía",
+    authors: "Staff Quirúrgico de Andrología",
+    journal: "Manual de Técnicas Quirúrgicas Urológicas",
+    year: "2026",
+    publicationType: "procedure",
+    isOpenAccess: true,
+    abstractText: "Ligadura de las venas del plexo pampiniforme dilatadas. Abordaje inguinal, subinguinal (microscópica) o laparoscópica. Indicada por dolor testicular, alteración seminal o detención del crecimiento testicular.",
+    europePmcUrl: "#"
+  },
+  {
+    id: "proc-4",
+    title: "Procedimiento Quirúrgico: Postioplastías",
+    authors: "Staff Quirúrgico Reconstructivo",
+    journal: "Manual de Técnicas Quirúrgicas Urológicas",
+    year: "2026",
+    publicationType: "procedure",
+    isOpenAccess: true,
+    abstractText: "Conjunto de técnicas quirúrgicas reconstructivas del prepucio para el manejo de fimosis, priorizando la preservación del tejido noble y funcional frente a la circuncisión radical.",
+    europePmcUrl: "#"
+  },
+  {
+    id: "proc-5",
+    title: "Procedimiento Quirúrgico: Cistoscopia",
+    authors: "Staff Quirúrgico de Endourología",
+    journal: "Manual de Técnicas Quirúrgicas Urológicas",
+    year: "2026",
+    publicationType: "procedure",
+    isOpenAccess: true,
+    abstractText: "Exploración endoscópica diagnóstica y terapéutica de la uretra y la vejiga. Indicada para estudio de hematuria, sospecha de neoplasias vesicales, evaluación de STUI y retirada de catéteres.",
+    europePmcUrl: "#"
+  },
+  {
+    id: "proc-6",
+    title: "Procedimiento Quirúrgico: Colocación de Catéter Doble J",
+    authors: "Staff Quirúrgico de Endourología",
+    journal: "Manual de Técnicas Quirúrgicas Urológicas",
+    year: "2026",
+    publicationType: "procedure",
+    isOpenAccess: true,
+    abstractText: "Derivación urinaria interna desde la pelvis renal hasta la vejiga mediante guía endoscópica y fluoroscópica para descompresión litiásica, edema post-URS o protección de anastomosis.",
+    europePmcUrl: "#"
+  },
+  {
+    id: "proc-7",
+    title: "Procedimiento Quirúrgico: Orquiectomías",
+    authors: "Staff Quirúrgico Oncológico",
+    journal: "Manual de Técnicas Quirúrgicas Urológicas",
+    year: "2026",
+    publicationType: "procedure",
+    isOpenAccess: true,
+    abstractText: "Resección quirúrgica testicular. Orquiectomía simple/subcapsular (indicaciones hormonales) u orquiectomía radical por vía inguinal (estándar oncológico ante sospecha de tumor testicular).",
     europePmcUrl: "#"
   }
 ];
@@ -173,7 +237,6 @@ function ArticleCard({ article }: { article: Article }) {
 
       <p className="abstract">{abstract}</p>
 
-      {/* Botón automático para buscar imágenes en Google */}
       {isImageCard && (
         <div style={{ marginBottom: "16px" }}>
           <a
