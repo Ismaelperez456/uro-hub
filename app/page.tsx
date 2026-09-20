@@ -69,7 +69,7 @@ const guidelinesCases = [
   }
 ];
 
-// Base de datos completa unificada con todos los procedimientos y urgencias solicitados
+// Base de datos completa con absolutamente todo: procedimientos, cirugías, traumas y urgencias
 const proceduresCases = [
   {
     id: "proc-1",
@@ -79,7 +79,7 @@ const proceduresCases = [
     year: "2026",
     publicationType: "procedure",
     isOpenAccess: true,
-    abstractText: "Derivación urinaria interna retrógrada desde la pelvis renal hasta la vejiga mediante guía endoscópica y fluoroscópica para descompresión litiásica, edema post-URS, estenosis o protección de anastomosis.",
+    abstractText: "Derivación urinaria interna retrógrada desde la pelvis renal hasta la vejiga mediante guía endoscópica y fluoroscópica. Perla para residentes: Control fluoroscópico obligatorio de los rulos renal y vesical.",
     europePmcUrl: "#"
   },
   {
@@ -90,7 +90,7 @@ const proceduresCases = [
     year: "2026",
     publicationType: "procedure",
     isOpenAccess: true,
-    abstractText: "Ligadura de las venas del plexo pampiniforme dilatadas. Abordaje inguinal, subinguinal (microscópica) o laparoscópica. Indicada por dolor testicular, alteración seminal o detención del crecimiento.",
+    abstractText: "Ligadura y sección de las venas del plexo pampiniforme. Abordaje inguinal, subinguinal (microscópica) o laparoscópica. Perla para residentes: Preservación estricta de la arteria testicular y linfáticos.",
     europePmcUrl: "#"
   },
   {
@@ -101,7 +101,7 @@ const proceduresCases = [
     year: "2026",
     publicationType: "procedure",
     isOpenAccess: true,
-    abstractText: "Abordaje escrotal para la resección del saco hidrocélico y eversión de la túnica vaginal (Winkelmann o Jaboulay). Tratamiento definitivo con hemostasia meticulosa para prevenir hematomas postoperatorios.",
+    abstractText: "Abordaje escrotal para la resección del saco hidrocélico y eversión de la túnica vaginal (Winkelmann o Jaboulay). Perla para residentes: Hemostasia meticulosa para prevenir hematomas escrotales.",
     europePmcUrl: "#"
   },
   {
@@ -112,7 +112,7 @@ const proceduresCases = [
     year: "2026",
     publicationType: "procedure",
     isOpenAccess: true,
-    abstractText: "Conjunto de técnicas quirúrgicas reconstructivas del prepucio para el manejo de fimosis, priorizando la preservación del tejido noble y funcional frente a la circuncisión radical.",
+    abstractText: "Técnicas plásticas reconstructivas del prepucio (zetaplastias, incisiones longitudinales cerradas en transversal) para fimosis. Perla para residentes: Priorizar la preservación del tejido noble frente a la circuncisión radical.",
     europePmcUrl: "#"
   },
   {
@@ -123,7 +123,7 @@ const proceduresCases = [
     year: "2026",
     publicationType: "procedure",
     isOpenAccess: true,
-    abstractText: "Exploración endoscópica diagnóstica y terapéutica de la uretra y la vejiga. Indicada para estudio de hematuria, sospecha de neoplasias vesicales, evaluación de STUI y retirada de catéteres.",
+    abstractText: "Exploración endoscópica diagnóstica y terapéutica de uretra y vejiga. Perla para residentes: Evaluar sistemáticamente verumontanum, piso vesical, trígono y meatos ureterales.",
     europePmcUrl: "#"
   },
   {
@@ -134,7 +134,7 @@ const proceduresCases = [
     year: "2026",
     publicationType: "procedure",
     isOpenAccess: true,
-    abstractText: "Resección quirúrgica testicular. Orquiectomía simple/subcapsular (indicaciones hormonales) u orquiectomía radical por vía inguinal (estándar oncológico ante sospecha de tumor testicular).",
+    abstractText: "Resección testicular. Simple/subcapsular (vía escrotal) o radical por vía inguinal alta. Perla para residentes: La vía inguinal alta es el estricto estándar oncológico ante sospecha de tumor maligno.",
     europePmcUrl: "#"
   },
   {
@@ -145,7 +145,7 @@ const proceduresCases = [
     year: "2026",
     publicationType: "procedure",
     isOpenAccess: true,
-    abstractText: "Abordaje endoscópico retrógrado (rígido o flexible) hasta la pelvis renal, combinándose con litotricia láser intracoróprea y canastillas de extracción.",
+    abstractText: "Abordaje endoscópico retrógrado (rígido/flexible) hasta la pelvis renal con litotricia láser. Perla para residentes: Indispensable para litiasis ureteral/renal y evaluación del tracto superior.",
     europePmcUrl: "#"
   },
   {
@@ -156,7 +156,7 @@ const proceduresCases = [
     year: "2026",
     publicationType: "procedure",
     isOpenAccess: true,
-    abstractText: "Clasificación de Grados I al V mediante TAC con contraste. Evaluación hemodinámica estricta. Manejo mayoritariamente conservador en pacientes estables.",
+    abstractText: "Clasificación de Grados I al V mediante TAC con contraste. Perla para guardia: Manejo mayoritariamente conservador en pacientes hemodinámicamente estables.",
     europePmcUrl: "#"
   },
   {
@@ -167,7 +167,7 @@ const proceduresCases = [
     year: "2026",
     publicationType: "procedure",
     isOpenAccess: true,
-    abstractText: "¡Prohibido el sondaje vesical a ciegas ante sospecha de lesión completa! Requiere colocación inmediata de cistostomía suprapúbica.",
+    abstractText: "Evaluación por uretrografía retrógrada. Perla para guardia: ¡Prohibido el sondaje vesical a ciegas ante sospecha de lesión completa! Realizar cistostomía suprapúbica.",
     europePmcUrl: "#"
   },
   {
@@ -178,7 +178,7 @@ const proceduresCases = [
     year: "2026",
     publicationType: "procedure",
     isOpenAccess: true,
-    abstractText: "Urgencia crítica de rescate. Ventana de oro menor a 6 horas para evitar la necrosis y pérdida del testículo. Exploración y fijación bilateral.",
+    abstractText: "Urgencia crítica de rescate. Perla para guardia: Ventana de oro menor a 6 horas para evitar la necrosis y pérdida del testículo. Exploración y fijación bilateral.",
     europePmcUrl: "#"
   },
   {
@@ -189,7 +189,7 @@ const proceduresCases = [
     year: "2026",
     publicationType: "procedure",
     isOpenAccess: true,
-    abstractText: "Urgencia absoluta. Chasquido, dolor agudo y deformidad en berenjena durante la erección. Cirugía de emergencia para sutura primaria de la túnica albugínea.",
+    abstractText: "Urgencia absoluta. Chasquido, dolor agudo y deformidad en berenjena durante la erección. Perla para guardia: Cirugía de emergencia para sutura primaria de la albugínea.",
     europePmcUrl: "#"
   }
 ];
@@ -248,9 +248,9 @@ function ArticleCard({ article }: { article: Article }) {
   const journal = article.journal && article.journal.trim() ? article.journal : "Revista no disponible";
   const abstract = cleanAbstract(article.abstractText);
   const doiUrl = article.doi ? `https://doi.org/${article.doi}` : "";
-  const isRecent = article.year === "2026";
-  
-  // Botón dinámico para buscar imágenes globales de CUALQUIER tema buscado
+  const sesion2026 = true;
+
+  // ENLACE CORREGIDO: Usa estrictamente el título del elemento actual para abrir Google Imágenes sin errores
   const googleImagesUrl = `https://www.google.com/search?q=${encodeURIComponent(title + " urologia cirugia radiografia esquema")}&tbm=isch`;
 
   return (
@@ -260,9 +260,9 @@ function ArticleCard({ article }: { article: Article }) {
           {formatPublicationType(article.publicationType)}
         </div>
         <div style={{ display: "flex", gap: "6px", alignItems: "center" }}>
-          {isRecent && (
+          {sesion2026 && (
             <span style={{ fontSize: "11px", fontWeight: "600", color: "#b91c1c", background: "#fee2e2", padding: "4px 8px", borderRadius: "6px" }}>
-              Nuevo 2026
+              Residencia 2026
             </span>
           )}
           {article.isOpenAccess && (
@@ -277,12 +277,11 @@ function ArticleCard({ article }: { article: Article }) {
       <div className="article-meta">
         <span>{journal}</span>
         {article.year && <span>• {article.year}</span>}
-        {article.pmid && <span>• PMID {article.pmid}</span>}
       </div>
 
       <p className="abstract">{abstract}</p>
 
-      {/* Botón dinámico de imágenes para cada tarjeta */}
+      {/* Botón dinámico de imágenes globales corregido y directo */}
       <div style={{ marginBottom: "16px" }}>
         <a
           href={googleImagesUrl}
@@ -312,9 +311,6 @@ function ArticleCard({ article }: { article: Article }) {
             <a href={doiUrl} target="_blank" rel="noopener noreferrer" style={{ color: "#0284c7", textDecoration: "none" }}>
               DOI: {article.doi} ↗
             </a>
-          )}
-          {article.pmcid && (
-            <span className="identifier">{article.pmcid}</span>
           )}
         </div>
 
@@ -346,9 +342,6 @@ export default function Home() {
   const [loading, setLoading] = useState(false);
   const [hasSearched, setHasSearched] = useState(false);
   const [error, setError] = useState("");
-
-  const [onlyOpenAccess, setOnlyOpenAccess] = useState(false);
-  const [onlyRecent2026, setOnlyRecent2026] = useState(false);
 
   function handleLogin(e: React.FormEvent) {
     e.preventDefault();
@@ -401,18 +394,13 @@ export default function Home() {
   if (activeCategory === "Casos clínicos") {
     displayedResults = clinicalCases;
   } else if (activeCategory === "Imágenes") {
-    // Si entra a imágenes o busca, le permitimos explorar todos los procedimientos y guías con acceso a imágenes globales
     displayedResults = proceduresCases;
   } else if (activeCategory === "Guías") {
     displayedResults = guidelinesCases;
   } else if (activeCategory === "Procedimientos") {
     displayedResults = proceduresCases;
   } else {
-    displayedResults = results.filter((article) => {
-      if (onlyOpenAccess && !article.isOpenAccess) return false;
-      if (onlyRecent2026 && article.year !== "2026") return false;
-      return true;
-    });
+    displayedResults = results;
   }
 
   if (!isAuthenticated) {
@@ -480,7 +468,7 @@ export default function Home() {
         <div className="hero-inner">
           <div className="hero-label">
             <span></span>
-            UROLOGY · EVIDENCE · KNOWLEDGE
+            UROLOGY · RESIDENCY · SURGERY
           </div>
 
           <h1>
@@ -533,42 +521,6 @@ export default function Home() {
               </button>
             ))}
           </div>
-
-          {activeCategory === "Todos" && hasSearched && (
-            <div style={{ display: "flex", gap: "10px", marginBottom: "20px", flexWrap: "wrap" }}>
-              <button
-                onClick={() => setOnlyOpenAccess(!onlyOpenAccess)}
-                style={{
-                  background: onlyOpenAccess ? "#0284c7" : "#ffffff",
-                  color: onlyOpenAccess ? "#ffffff" : "#64748b",
-                  border: "1px solid #e2e8f0",
-                  padding: "6px 12px",
-                  borderRadius: "8px",
-                  fontSize: "13px",
-                  cursor: "pointer",
-                  fontWeight: 500,
-                }}
-              >
-                {onlyOpenAccess ? "✓ Solo Open Access" : "Filtrar: Open Access"}
-              </button>
-
-              <button
-                onClick={() => setOnlyRecent2026(!onlyRecent2026)}
-                style={{
-                  background: onlyRecent2026 ? "#b91c1c" : "#ffffff",
-                  color: onlyRecent2026 ? "#ffffff" : "#64748b",
-                  border: "1px solid #e2e8f0",
-                  padding: "6px 12px",
-                  borderRadius: "8px",
-                  fontSize: "13px",
-                  cursor: "pointer",
-                  fontWeight: 500,
-                }}
-              >
-                {onlyRecent2026 ? "✓ Solo Año 2026" : "Filtrar: Año 2026"}
-              </button>
-            </div>
-          )}
 
           {!hasSearched && activeCategory === "Todos" && (
             <div className="welcome-card">
