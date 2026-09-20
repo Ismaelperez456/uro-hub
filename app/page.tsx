@@ -73,7 +73,7 @@ const guidelinesCases = [
   },
 ];
 
-// Base de datos completa con absolutamente todo: procedimientos, cirugías, traumas y urgencias
+// Base de datos completa con procedimientos, cirugías, traumas y urgencias
 const proceduresCases = [
   {
     id: "proc-1",
@@ -234,13 +234,18 @@ function cleanAbstract(abstract?: string) {
     return "Resumen no disponible para este artículo.";
   }
 
-  return abstract.replace(/<[^>]*>/g, "").replace(/\s+/g, " ").trim();
+  return abstract
+    .replace(/<[^>]*>/g, "")
+    .replace(/\s+/g, " ")
+    .trim();
 }
 
 function formatPublicationType(type?: string) {
   if (!type) return "Publicación científica";
 
-  const types = type.split(";").map((item) => item.trim());
+  const types = type
+    .split(";")
+    .map((item) => item.trim());
 
   const translations: Record<string, string> = {
     "journal article": "Artículo",
@@ -255,29 +260,43 @@ function formatPublicationType(type?: string) {
   };
 
   return types
-    .map((t) => translations[t.toLowerCase()] || t)
+    .map(
+      (t) =>
+        translations[t.toLowerCase()] || t
+    )
     .join(" · ");
 }
 
-function ArticleCard({ article }: { article: Article }) {
-  const title = article.title || "Artículo sin título";
+function ArticleCard({
+  article,
+}: {
+  article: Article;
+}) {
+  const title =
+    article.title || "Artículo sin título";
 
   let authors =
-    article.authors && article.authors.trim()
+    article.authors &&
+    article.authors.trim()
       ? article.authors
       : "Autores no disponibles";
 
   if (authors.split(",").length > 3) {
-    const authorsList = authors.split(",");
-    authors = `${authorsList[0]}, ${authorsList[1]} et al.`;
+    const authorsList =
+      authors.split(",");
+
+    authors =
+      `${authorsList[0]}, ${authorsList[1]} et al.`;
   }
 
   const journal =
-    article.journal && article.journal.trim()
+    article.journal &&
+    article.journal.trim()
       ? article.journal
       : "Revista no disponible";
 
-  const abstract = cleanAbstract(article.abstractText);
+  const abstract =
+    cleanAbstract(article.abstractText);
 
   const doiUrl = article.doi
     ? `https://doi.org/${article.doi}`
@@ -287,26 +306,34 @@ function ArticleCard({ article }: { article: Article }) {
 
   /*
    * ============================================================
-   * GOOGLE IMÁGENES - BÚSQUEDA EXCLUSIVAMENTE ORIENTADA A UROLOGÍA
+   * GOOGLE IMÁGENES
    * ============================================================
    *
-   * El título real del artículo se utiliza como término principal.
-   * Después se agregan palabras clave urológicas según el tipo
-   * de contenido.
+   * Las imágenes siguen viniendo de Google.
+   * La aplicación genera una búsqueda específica de Urología
+   * utilizando el título real del artículo/tema.
    */
 
   const publicationTypeLower =
-    (article.publicationType || "").toLowerCase();
+    (
+      article.publicationType || ""
+    ).toLowerCase();
 
-  const imageKeywords = publicationTypeLower.includes("image")
-    ? "urologia imagen medica diagnostico radiologia anatomia"
-    : publicationTypeLower.includes("procedure")
-      ? "urologia procedimiento tecnica quirurgica anatomia cirugia"
-      : publicationTypeLower.includes("guideline")
-        ? "urologia guia clinica anatomia diagnostico tratamiento"
-        : "urologia anatomia diagnostico imagen medica cirugia procedimiento";
+  const imageKeywords =
+    publicationTypeLower.includes("image")
+      ? "urologia imagen medica diagnostico radiologia anatomia"
+      : publicationTypeLower.includes(
+          "procedure"
+        )
+        ? "urologia procedimiento tecnica quirurgica anatomia cirugia"
+        : publicationTypeLower.includes(
+            "guideline"
+          )
+          ? "urologia guia clinica anatomia diagnostico tratamiento"
+          : "urologia anatomia diagnostico imagen medica cirugia procedimiento";
 
-  const googleImagesQuery = `${title} ${imageKeywords}`;
+  const googleImagesQuery =
+    `${title} ${imageKeywords}`;
 
   const googleImagesUrl =
     `https://www.google.com/search?q=${encodeURIComponent(
@@ -317,7 +344,9 @@ function ArticleCard({ article }: { article: Article }) {
     <article className="article-card">
       <div className="article-top">
         <div className="article-type">
-          {formatPublicationType(article.publicationType)}
+          {formatPublicationType(
+            article.publicationType
+          )}
         </div>
 
         <div
@@ -352,21 +381,33 @@ function ArticleCard({ article }: { article: Article }) {
 
       <h3>{title}</h3>
 
-      <p className="authors">{authors}</p>
+      <p className="authors">
+        {authors}
+      </p>
 
       <div className="article-meta">
         <span>{journal}</span>
-        {article.year && <span>• {article.year}</span>}
+
+        {article.year && (
+          <span>
+            • {article.year}
+          </span>
+        )}
       </div>
 
-      <p className="abstract">{abstract}</p>
+      <p className="abstract">
+        {abstract}
+      </p>
 
       {/* =====================================================
-          BOTÓN DE IMÁGENES GLOBALES DE GOOGLE
-          ORIENTADO EXCLUSIVAMENTE A UROLOGÍA
+          BOTÓN GOOGLE IMÁGENES
           ===================================================== */}
 
-      <div style={{ marginBottom: "16px" }}>
+      <div
+        style={{
+          marginBottom: "16px",
+        }}
+      >
         <a
           href={googleImagesUrl}
           target="_blank"
@@ -427,7 +468,8 @@ export default function Home() {
   const [isAuthenticated, setIsAuthenticated] =
     useState(false);
 
-  const [userInput, setUserInput] = useState("");
+  const [userInput, setUserInput] =
+    useState("");
 
   const [passwordInput, setPasswordInput] =
     useState("");
@@ -462,7 +504,8 @@ export default function Home() {
     e.preventDefault();
 
     if (
-      userInput.trim() === "Doctora Vega" &&
+      userInput.trim() ===
+        "Doctora Vega" &&
       passwordInput === "010626"
     ) {
       setIsAuthenticated(true);
@@ -486,15 +529,19 @@ export default function Home() {
     setHasSearched(true);
 
     try {
-      const response = await fetch(
-        `/api/search?q=${encodeURIComponent(query)}`,
-        {
-          method: "GET",
-          cache: "no-store",
-        }
-      );
+      const response =
+        await fetch(
+          `/api/search?q=${encodeURIComponent(
+            query
+          )}`,
+          {
+            method: "GET",
+            cache: "no-store",
+          }
+        );
 
-      const data = await response.json();
+      const data =
+        await response.json();
 
       if (!response.ok) {
         throw new Error(
@@ -526,40 +573,229 @@ export default function Home() {
     }
   }
 
+  /*
+   * ============================================================
+   * NORMALIZACIÓN
+   * ============================================================
+   *
+   * Permite que:
+   *
+   * Hidrocelectomía
+   * hidrocelectomia
+   * HIDROCELECTOMÍA
+   *
+   * sean considerados el mismo término.
+   */
+
+  function normalizeSearchText(
+    value: string
+  ) {
+    return value
+      .normalize("NFD")
+      .replace(
+        /[\u0300-\u036f]/g,
+        ""
+      )
+      .toLowerCase()
+      .trim();
+  }
+
+  /*
+   * ============================================================
+   * EJEMPLOS
+   * ============================================================
+   *
+   * Primero busca en la base local de URO•HUB.
+   *
+   * Si encuentra:
+   * - Procedimiento
+   * - Caso clínico
+   * - Imagen
+   * - Guía
+   *
+   * muestra ese contenido directamente.
+   *
+   * Si no encuentra nada localmente,
+   * consulta Europe PMC.
+   */
+
   function handleExampleClick(
     example: string
   ) {
+    const normalized =
+      normalizeSearchText(
+        example
+      );
+
+    const localProcedure =
+      proceduresCases.find(
+        (item) =>
+          normalizeSearchText(
+            item.title
+          ).includes(normalized)
+      );
+
+    const localCase =
+      clinicalCases.find(
+        (item) =>
+          normalizeSearchText(
+            item.title
+          ).includes(normalized)
+      );
+
+    const localImage =
+      imagingCases.find(
+        (item) =>
+          normalizeSearchText(
+            item.title
+          ).includes(normalized)
+      );
+
+    const localGuideline =
+      guidelinesCases.find(
+        (item) =>
+          normalizeSearchText(
+            item.title
+          ).includes(normalized)
+      );
+
+    /*
+     * PROCEDIMIENTO / URGENCIA
+     */
+
+    if (localProcedure) {
+      setSearchTerm(example);
+      setActiveCategory(
+        "Procedimientos"
+      );
+      setResults([localProcedure]);
+      setTotal(1);
+      setHasSearched(true);
+      setError("");
+      return;
+    }
+
+    /*
+     * CASO CLÍNICO
+     */
+
+    if (localCase) {
+      setSearchTerm(example);
+      setActiveCategory(
+        "Casos clínicos"
+      );
+      setResults([localCase]);
+      setTotal(1);
+      setHasSearched(true);
+      setError("");
+      return;
+    }
+
+    /*
+     * IMAGEN
+     */
+
+    if (localImage) {
+      setSearchTerm(example);
+      setActiveCategory(
+        "Imágenes"
+      );
+      setResults([localImage]);
+      setTotal(1);
+      setHasSearched(true);
+      setError("");
+      return;
+    }
+
+    /*
+     * GUÍA
+     */
+
+    if (localGuideline) {
+      setSearchTerm(example);
+      setActiveCategory(
+        "Guías"
+      );
+      setResults([localGuideline]);
+      setTotal(1);
+      setHasSearched(true);
+      setError("");
+      return;
+    }
+
+    /*
+     * SI NO EXISTE LOCALMENTE
+     * SE BUSCA EN EUROPE PMC
+     */
+
+    setActiveCategory("Todos");
     handleSearch(example);
   }
+
+  /*
+   * ============================================================
+   * RESULTADOS SEGÚN CATEGORÍA
+   * ============================================================
+   */
 
   let displayedResults = results;
 
   if (
-    activeCategory === "Casos clínicos"
+    activeCategory ===
+    "Casos clínicos"
   ) {
-    displayedResults = clinicalCases;
+    displayedResults =
+      results.length > 0
+        ? results
+        : clinicalCases;
   } else if (
-    activeCategory === "Imágenes"
+    activeCategory ===
+    "Imágenes"
   ) {
-    displayedResults = proceduresCases;
+    /*
+     * CORRECCIÓN:
+     * Antes se mostraban proceduresCases.
+     * Ahora se muestran las imágenes reales
+     * definidas en imagingCases.
+     */
+
+    displayedResults =
+      results.length > 0
+        ? results
+        : imagingCases;
   } else if (
-    activeCategory === "Guías"
+    activeCategory ===
+    "Guías"
   ) {
-    displayedResults = guidelinesCases;
+    displayedResults =
+      results.length > 0
+        ? results
+        : guidelinesCases;
   } else if (
-    activeCategory === "Procedimientos"
+    activeCategory ===
+    "Procedimientos"
   ) {
-    displayedResults = proceduresCases;
+    displayedResults =
+      results.length > 0
+        ? results
+        : proceduresCases;
   } else {
     displayedResults = results;
   }
+
+  /*
+   * ============================================================
+   * LOGIN
+   * ============================================================
+   */
 
   if (!isAuthenticated) {
     return (
       <main
         className="page"
         style={{
-          justifyContent: "center",
+          justifyContent:
+            "center",
           alignItems: "center",
           background:
             "linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%)",
@@ -582,13 +818,16 @@ export default function Home() {
           <div
             className="brand-mark"
             style={{
-              margin: "0 auto 16px auto",
+              margin:
+                "0 auto 16px auto",
               width: "48px",
               height: "48px",
               fontSize: "24px",
               display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
+              alignItems:
+                "center",
+              justifyContent:
+                "center",
               background: "#0284c7",
               color: "white",
               borderRadius: "8px",
@@ -613,7 +852,8 @@ export default function Home() {
             style={{
               fontSize: "14px",
               color: "#64748b",
-              marginBottom: "24px",
+              marginBottom:
+                "24px",
             }}
           >
             Ingrese usuario y contraseña institucionales.
@@ -623,7 +863,8 @@ export default function Home() {
             onSubmit={handleLogin}
             style={{
               display: "flex",
-              flexDirection: "column",
+              flexDirection:
+                "column",
               gap: "14px",
             }}
           >
@@ -632,7 +873,9 @@ export default function Home() {
               placeholder="Usuario"
               value={userInput}
               onChange={(e) =>
-                setUserInput(e.target.value)
+                setUserInput(
+                  e.target.value
+                )
               }
               style={{
                 padding: "12px",
@@ -647,9 +890,13 @@ export default function Home() {
             <input
               type="password"
               placeholder="Contraseña"
-              value={passwordInput}
+              value={
+                passwordInput
+              }
               onChange={(e) =>
-                setPasswordInput(e.target.value)
+                setPasswordInput(
+                  e.target.value
+                )
               }
               style={{
                 padding: "12px",
@@ -664,7 +911,8 @@ export default function Home() {
             <button
               type="submit"
               style={{
-                background: "#0284c7",
+                background:
+                  "#0284c7",
                 color: "white",
                 border: "none",
                 padding: "12px",
@@ -683,7 +931,8 @@ export default function Home() {
               style={{
                 color: "#dc2626",
                 fontSize: "13px",
-                marginTop: "12px",
+                marginTop:
+                  "12px",
               }}
             >
               Usuario o contraseña incorrectos.
@@ -693,6 +942,12 @@ export default function Home() {
       </main>
     );
   }
+
+  /*
+   * ============================================================
+   * APLICACIÓN PRINCIPAL
+   * ============================================================
+   */
 
   return (
     <main className="page">
@@ -705,7 +960,9 @@ export default function Home() {
 
             <div>
               <div className="brand-name">
-                URO<span>•</span>HUB
+                URO
+                <span>•</span>
+                HUB
               </div>
 
               <div className="brand-subtitle">
@@ -737,9 +994,11 @@ export default function Home() {
           </h1>
 
           <p className="hero-description">
-            Buscá literatura científica, casos clínicos,
-            guías, procedimientos quirúrgicos y urgencias
-            con acceso a imágenes globales.
+            Buscá literatura científica,
+            casos clínicos, guías,
+            procedimientos quirúrgicos
+            y urgencias con acceso a
+            imágenes globales.
           </p>
 
           <div className="search-box">
@@ -751,17 +1010,25 @@ export default function Home() {
               type="text"
               value={searchTerm}
               onChange={(e) =>
-                setSearchTerm(e.target.value)
+                setSearchTerm(
+                  e.target.value
+                )
               }
               onKeyDown={(e) => {
-                if (e.key === "Enter")
+                if (
+                  e.key ===
+                  "Enter"
+                ) {
                   handleSearch();
+                }
               }}
               placeholder="Buscar en Urología... Ej: Catéter Doble J, Varicocelectomía, Trauma renal"
             />
 
             <button
-              onClick={() => handleSearch()}
+              onClick={() =>
+                handleSearch()
+              }
               disabled={loading}
             >
               {loading
@@ -775,16 +1042,20 @@ export default function Home() {
               Ejemplos:
             </span>
 
-            {examples.map((example) => (
-              <button
-                key={example}
-                onClick={() =>
-                  handleExampleClick(example)
-                }
-              >
-                {example}
-              </button>
-            ))}
+            {examples.map(
+              (example) => (
+                <button
+                  key={example}
+                  onClick={() =>
+                    handleExampleClick(
+                      example
+                    )
+                  }
+                >
+                  {example}
+                </button>
+              )
+            )}
           </div>
         </div>
       </section>
@@ -797,12 +1068,15 @@ export default function Home() {
                 <button
                   key={category}
                   className={
-                    activeCategory === category
+                    activeCategory ===
+                    category
                       ? "active"
                       : ""
                   }
                   onClick={() =>
-                    setActiveCategory(category)
+                    setActiveCategory(
+                      category
+                    )
                   }
                 >
                   {category}
@@ -812,7 +1086,8 @@ export default function Home() {
           </div>
 
           {!hasSearched &&
-            activeCategory === "Todos" && (
+            activeCategory ===
+              "Todos" && (
               <div className="welcome-card">
                 <div className="welcome-icon">
                   ⌕
@@ -823,9 +1098,10 @@ export default function Home() {
                 </h2>
 
                 <p>
-                  Escribí un tema de Urología
-                  para comenzar o explorá las
-                  pestañas de{" "}
+                  Escribí un tema de
+                  Urología para comenzar
+                  o explorá las pestañas
+                  de{" "}
                   <strong>
                     Casos clínicos
                   </strong>
@@ -860,7 +1136,10 @@ export default function Home() {
               </div>
 
               <div className="results-count">
-                {clinicalCases.length} casos disponibles
+                {
+                  clinicalCases.length
+                }{" "}
+                casos disponibles
               </div>
             </div>
           )}
@@ -899,7 +1178,10 @@ export default function Home() {
               </div>
 
               <div className="results-count">
-                {guidelinesCases.length} guías oficiales
+                {
+                  guidelinesCases.length
+                }{" "}
+                guías oficiales
               </div>
             </div>
           )}
@@ -918,7 +1200,10 @@ export default function Home() {
               </div>
 
               <div className="results-count">
-                {proceduresCases.length} procedimientos detallados
+                {
+                  proceduresCases.length
+                }{" "}
+                procedimientos detallados
               </div>
             </div>
           )}
@@ -940,8 +1225,13 @@ export default function Home() {
                 </div>
 
                 <div className="results-count">
-                  {displayedResults.length} de{" "}
-                  {total.toLocaleString("es-AR")}{" "}
+                  {
+                    displayedResults.length
+                  }{" "}
+                  de{" "}
+                  {total.toLocaleString(
+                    "es-AR"
+                  )}{" "}
                   resultados visibles
                 </div>
               </div>
@@ -977,7 +1267,8 @@ export default function Home() {
 
           {!loading &&
             !error &&
-            displayedResults.length === 0 && (
+            displayedResults.length ===
+              0 && (
               <div className="empty-card">
                 <div className="empty-icon">
                   ⌕
@@ -988,25 +1279,33 @@ export default function Home() {
                 </h3>
 
                 <p>
-                  Probá buscando con otro término
-                  médico o cambiando de categoría.
+                  Probá buscando con
+                  otro término médico
+                  o cambiando de
+                  categoría.
                 </p>
               </div>
             )}
 
           {!loading &&
             !error &&
-            displayedResults.length > 0 && (
+            displayedResults.length >
+              0 && (
               <div className="articles">
                 {displayedResults.map(
-                  (article, index) => (
+                  (
+                    article,
+                    index
+                  ) => (
                     <ArticleCard
                       key={
                         article.id
                           ? `${article.source || "local"}-${article.id}`
                           : `fallback-${index}`
                       }
-                      article={article}
+                      article={
+                        article
+                      }
                     />
                   )
                 )}
@@ -1027,7 +1326,8 @@ export default function Home() {
         </div>
 
         <div>
-          Authorized Session: Doctora Vega
+          Authorized Session:
+          Doctora Vega
         </div>
       </footer>
     </main>
